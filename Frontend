@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Joke Generator</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>AI Joke Generator 🤣</h1>
+        <form method="POST">
+            <label for="category">Choose a category:</label>
+            <select id="category" name="category">
+                <option value="random">Random</option>
+                <option value="programming">Programming</option>
+                <option value="animals">Animals</option>
+                <option value="puns">Puns</option>
+            </select>
+            <button type="submit">Generate Joke</button>
+        </form>
+        {% if joke %}
+            <div class="joke-box">
+                <p>{{ joke }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
