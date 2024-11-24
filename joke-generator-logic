@@ -1,0 +1,17 @@
+from transformers import pipeline
+
+# Load a pre-trained text generation model
+generator = pipeline("text-generation", model="gpt2")
+
+# Define joke prompts for categories
+PROMPTS = {
+    "random": "Tell me a funny joke:",
+    "programming": "Tell me a programming joke:",
+    "animals": "Tell me an animal joke:",
+    "puns": "Tell me a pun:",
+}
+
+def generate_joke(category):
+    prompt = PROMPTS.get(category, PROMPTS["random"])
+    joke = generator(prompt, max_length=50, num_return_sequences=1)[0]["generated_text"]
+    return joke.strip()
